@@ -29,34 +29,23 @@ namespace G_UNO
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.openfile_toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.guno_toolStrip = new System.Windows.Forms.ToolStrip();
             this.gcode_richTextBox = new System.Windows.Forms.RichTextBox();
             this.acceptbtn = new System.Windows.Forms.Button();
             this.cancelbtn = new System.Windows.Forms.Button();
             this.gcode_openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.toolStrip1.SuspendLayout();
+            this.openfile_toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.guno_toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // guno_toolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guno_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openfile_toolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(634, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // openfile_toolStripButton
-            // 
-            this.openfile_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openfile_toolStripButton.Image = global::G_UNO.Properties.Resources.file_import_solid;
-            this.openfile_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openfile_toolStripButton.Name = "openfile_toolStripButton";
-            this.openfile_toolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.openfile_toolStripButton.ToolTipText = "Abrir archivo";
-            this.openfile_toolStripButton.Click += new System.EventHandler(this.openfile_toolStripButton_Click);
+            this.guno_toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.guno_toolStrip.Name = "guno_toolStrip";
+            this.guno_toolStrip.Size = new System.Drawing.Size(634, 25);
+            this.guno_toolStrip.TabIndex = 0;
             // 
             // gcode_richTextBox
             // 
@@ -98,6 +87,16 @@ namespace G_UNO
             this.gcode_openFileDialog.Filter = "GCODE Files (*.gcode)|*.gcode|TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
             this.gcode_openFileDialog.Title = "Abrir documento de codigo g";
             // 
+            // openfile_toolStripButton
+            // 
+            this.openfile_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openfile_toolStripButton.Image = global::G_UNO.Properties.Resources.file_import_solid;
+            this.openfile_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openfile_toolStripButton.Name = "openfile_toolStripButton";
+            this.openfile_toolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openfile_toolStripButton.ToolTipText = "Abrir archivo";
+            this.openfile_toolStripButton.Click += new System.EventHandler(this.openfile_toolStripButton_Click);
+            // 
             // LoadGCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,7 +105,7 @@ namespace G_UNO
             this.Controls.Add(this.cancelbtn);
             this.Controls.Add(this.acceptbtn);
             this.Controls.Add(this.gcode_richTextBox);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.guno_toolStrip);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(650, 500);
@@ -115,8 +114,8 @@ namespace G_UNO
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cargar Código G";
             this.Shown += new System.EventHandler(this.LoadGCode_Shown);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.guno_toolStrip.ResumeLayout(false);
+            this.guno_toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +123,7 @@ namespace G_UNO
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip guno_toolStrip;
         private System.Windows.Forms.ToolStripButton openfile_toolStripButton;
         private System.Windows.Forms.RichTextBox gcode_richTextBox;
         private System.Windows.Forms.Button acceptbtn;

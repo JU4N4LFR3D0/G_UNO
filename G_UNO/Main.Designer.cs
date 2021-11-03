@@ -30,7 +30,7 @@ namespace G_UNO
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.guno_menuStrip = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadimg_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadgcode_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +53,7 @@ namespace G_UNO
             this.establecerPosicionACerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.irAlOrigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.guno_toolStrip = new System.Windows.Forms.ToolStrip();
             this.update_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.loadgcode_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.loadimg_toolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -71,29 +71,28 @@ namespace G_UNO
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.setzeros_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.home_toolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.guno_statusStrip = new System.Windows.Forms.StatusStrip();
             this.versionlbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.gunotoolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.portlbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.consolatbox = new System.Windows.Forms.RichTextBox();
-            this.gunoserialPort = new System.IO.Ports.SerialPort(this.components);
             this.gunotimer = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.guno_menuStrip.SuspendLayout();
+            this.guno_toolStrip.SuspendLayout();
+            this.guno_statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // guno_menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guno_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.acercaDeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(894, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.guno_menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.guno_menuStrip.Name = "guno_menuStrip";
+            this.guno_menuStrip.Size = new System.Drawing.Size(770, 24);
+            this.guno_menuStrip.TabIndex = 0;
+            this.guno_menuStrip.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
@@ -286,9 +285,9 @@ namespace G_UNO
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
-            // toolStrip1
+            // guno_toolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guno_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.update_toolStripButton,
             this.loadgcode_toolStripButton,
             this.loadimg_toolStripButton,
@@ -306,11 +305,11 @@ namespace G_UNO
             this.toolStripSeparator5,
             this.setzeros_toolStripButton,
             this.home_toolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(894, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.guno_toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.guno_toolStrip.Name = "guno_toolStrip";
+            this.guno_toolStrip.Size = new System.Drawing.Size(770, 25);
+            this.guno_toolStrip.TabIndex = 1;
+            this.guno_toolStrip.Text = "toolStrip1";
             // 
             // update_toolStripButton
             // 
@@ -460,17 +459,17 @@ namespace G_UNO
             this.home_toolStripButton.ToolTipText = "Ir al origen";
             this.home_toolStripButton.Click += new System.EventHandler(this.home_toolStripButton_Click);
             // 
-            // statusStrip1
+            // guno_statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guno_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.versionlbl,
             this.gunotoolStripProgressBar,
             this.portlbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 645);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(894, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.guno_statusStrip.Location = new System.Drawing.Point(0, 439);
+            this.guno_statusStrip.Name = "guno_statusStrip";
+            this.guno_statusStrip.Size = new System.Drawing.Size(770, 22);
+            this.guno_statusStrip.TabIndex = 2;
+            this.guno_statusStrip.Text = "statusStrip1";
             // 
             // versionlbl
             // 
@@ -494,17 +493,14 @@ namespace G_UNO
             this.consolatbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.consolatbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.consolatbox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consolatbox.Location = new System.Drawing.Point(0, 52);
+            this.consolatbox.Location = new System.Drawing.Point(12, 52);
             this.consolatbox.Name = "consolatbox";
             this.consolatbox.ReadOnly = true;
-            this.consolatbox.Size = new System.Drawing.Size(894, 590);
+            this.consolatbox.Size = new System.Drawing.Size(746, 384);
             this.consolatbox.TabIndex = 3;
             this.consolatbox.Text = "G_UNO\n";
-            // 
-            // gunoserialPort
-            // 
-            this.gunoserialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.gunoserialPort_DataReceived);
             // 
             // gunotimer
             // 
@@ -515,23 +511,23 @@ namespace G_UNO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 667);
+            this.ClientSize = new System.Drawing.Size(770, 461);
             this.Controls.Add(this.consolatbox);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.guno_statusStrip);
+            this.Controls.Add(this.guno_toolStrip);
+            this.Controls.Add(this.guno_menuStrip);
+            this.MainMenuStrip = this.guno_menuStrip;
             this.Name = "Main";
             this.ShowIcon = false;
             this.Text = "G_UNO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Shown += new System.EventHandler(this.Main_Shown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.guno_menuStrip.ResumeLayout(false);
+            this.guno_menuStrip.PerformLayout();
+            this.guno_toolStrip.ResumeLayout(false);
+            this.guno_toolStrip.PerformLayout();
+            this.guno_statusStrip.ResumeLayout(false);
+            this.guno_statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,16 +535,16 @@ namespace G_UNO
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip guno_menuStrip;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem update_toolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salir_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip guno_toolStrip;
         private System.Windows.Forms.ToolStripButton update_toolStripButton;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip guno_statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel versionlbl;
         private System.Windows.Forms.ToolStripMenuItem puertoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -577,7 +573,6 @@ namespace G_UNO
         private System.Windows.Forms.ToolStripButton cancel_toolStripButton;
         private System.Windows.Forms.ToolStripProgressBar gunotoolStripProgressBar;
         private System.Windows.Forms.RichTextBox consolatbox;
-        private System.IO.Ports.SerialPort gunoserialPort;
         private System.Windows.Forms.ToolStripMenuItem loadimg_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadgcode_toolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;

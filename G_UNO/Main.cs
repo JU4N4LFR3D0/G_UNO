@@ -14,12 +14,8 @@ namespace G_UNO
     public partial class Main : Form
     {
         #region Inicializar
-        string port = "";
         string log = "";
-        bool streaming = false;
-        float speed = 0.001F;
-
-
+        public Streamer streamer = new Streamer();
         public Main()
         {
             InitializeComponent();
@@ -28,7 +24,10 @@ namespace G_UNO
         #region Metodos
         void Actualizar()
         {
-            CheckPort();
+            if (!streamer.CheckPort())
+            {
+                portlbl.Text = "Puerto [  ]";
+            }
             log = Log.Read();
             if(consolatbox.Text.Length < log.Length)
             {
@@ -141,7 +140,7 @@ namespace G_UNO
         }
         void LoadGCode()
         {
-            if (string.IsNullOrWhiteSpace(port))
+            if (!streamer.CheckPort())
             {
                 Log.WriteLine("No se ha seleccionado un puerto");
                 return;
@@ -164,7 +163,7 @@ namespace G_UNO
             Port portform = new Port();
             if (portform.ShowDialog() == DialogResult.OK)
             {
-                port = portform.GetPort;
+                streamer.Port = portform.GetPort;
                 gunoserialPort.PortName = port;
                 portlbl.Text = $"Puerto [ {port} ]";
                 Log.WriteLine("Puerto seleccionado: " + port);
@@ -208,28 +207,10 @@ namespace G_UNO
         }
         void AcercaDe()
         {
-
-        }
-
-        bool CheckPort()
-        {
-            if (SerialPort.GetPortNames().InArray(port))
-            {
-                return true;
-            }
-            else
-            {
-                if (!string.IsNullOrWhiteSpace(port))
-                {
-                    Log.WriteLine("No se encuentra el puerto: " + port);
-                    port = "";
-                    portlbl.Text = "Puerto [  ]";
-                }
-                return false;
-            }
+            About about = new About();
+            about.ShowDialog();
         }
         #endregion
-
         #region Eventos
         private void gunotimer_Tick(object sender, EventArgs e)
         {
