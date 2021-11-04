@@ -1,7 +1,7 @@
 # G_UNO
 Arduino CNC Laser with G Codes Interface on
 
-#.NET Windows Forms Proyect
+# .NET Windows Forms Proyect
 
 ------------------------------------------------------------------------------
 # COPYRIGHT NOTICE FOR G_UNO:
