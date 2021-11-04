@@ -29,110 +29,21 @@ namespace G_UNO
                 portlbl.Text = "Puerto [  ]";
             }
             log = Log.Read();
-            if(consolatbox.Text.Length < log.Length)
+            if (consolatbox.Text.Length < log.Length)
             {
                 consolatbox.Text = log;
                 consolatbox.SelectionStart = consolatbox.Text.Length;
                 consolatbox.ScrollToCaret();
             }
-        }
-        void Stream(SerialRequest serialRequest)
-        {
-            if (!CheckPort())
+            if (streamer.IsStreaming)
             {
-                Log.WriteLine("Error: Es necesario seleccionar un puerto serial valido");
-                return;
-            }
-            if (serialRequest.Type == SerialRequest.TypeGCodeStream)
-            {
-                if (streaming)
-                {
-                    Log.WriteLine("Streaming de datos aun en proceso");
-                    return;
-                }
-                else
-                {
-                    Log.WriteLine("Enviando codigos G");
-                    streaming = true;
-                    gunoserialPort.PortName = port;
-                    if (!gunoserialPort.IsOpen)
-                    {
-                        gunoserialPort.Open();
-                    }
-                    foreach (string line in serialRequest.GCode)
-                    {
-                        gunoserialPort.WriteLine(line);
-                    }
-                    gunoserialPort.Close();
-                    streaming = false;
-                }
-            }
-            else if (serialRequest.Type == SerialRequest.TypeCancel)
-            {
-                if (streaming)
-                {
-                    Log.WriteLine("Cancelando Proceso");
-                    //Cancelar
-                }
-                else
-                {
-                    Log.WriteLine("No hay nada que cancelar.");
-                    return;
-                }
+                Cursor = Cursors.WaitCursor;
             }
             else
             {
-                if (streaming)
-                {
-                    Log.WriteLine("Streaming de datos aun en proceso");
-                    return;
-                }
-                else
-                {
-                    switch (serialRequest.Type)
-                    {
-                        case SerialRequest.TypeUp:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeDown:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeLeft:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeRight:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeLaserON:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeLaserOFF:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeZero:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeHome:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        case SerialRequest.TypeGetInfo:
-                            serialRequest.GCode.Clear();
-                            serialRequest.GCode.Add("");
-                            break;
-                        default:
-                            Log.WriteLine("No se reconoce el tipo de Serial Request");
-                            break;
-                    }
-                }
+                Cursor = Cursors.Default;
             }
+            gunotoolStripProgressBar.Value = streamer.StreamProgress;
         }
         void LoadImg()
         {
@@ -151,7 +62,7 @@ namespace G_UNO
                 SerialRequest serialRequest = new SerialRequest(SerialRequest.TypeGCodeStream);
                 serialRequest.GCode = loadGCode.GetGCode;
                 Log.WriteLine(serialRequest.GCode.ToArray().ArrToString());
-                Stream(serialRequest);
+                streamer.StreamRequest(serialRequest);
             }
         }
         void Salir()
@@ -163,47 +74,46 @@ namespace G_UNO
             Port portform = new Port();
             if (portform.ShowDialog() == DialogResult.OK)
             {
-                streamer.Port = portform.GetPort;
-                gunoserialPort.PortName = port;
-                portlbl.Text = $"Puerto [ {port} ]";
-                Log.WriteLine("Puerto seleccionado: " + port);
+                streamer.SetPort(portform.GetPort);
+                portlbl.Text = $"Puerto [ {streamer.Port} ]";
+                Log.WriteLine("Puerto seleccionado: " + streamer.Port);
             }
         }
         void Cancel()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeCancel));
         }
         void GoDOWN()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeDown));
         }
         void GoUP()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeUp));
         }
         void GoLEFT()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLeft));
         }
         void GoRIGHT()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeRight));
         }
         void GoHOME()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeHome));
         }
         void LaserON()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLaserON));
         }
         void LaserOFF()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLaserOFF));
         }
         void SetZeros()
         {
-
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeZero));
         }
         void AcercaDe()
         {
@@ -225,16 +135,12 @@ namespace G_UNO
             }
             else
             {
-                if (gunoserialPort.IsOpen) gunoserialPort.Close();
+                streamer.ClosePort();
             }
         }
         private void Main_Shown(object sender, EventArgs e)
         {
             SelectPort();
-        }
-        private void gunoserialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
-            //Log.WriteLine((sender as SerialPort).ReadExisting());'\n'
         }
         private void loadimg_toolStripMenuItem_Click(object sender, EventArgs e)
         {

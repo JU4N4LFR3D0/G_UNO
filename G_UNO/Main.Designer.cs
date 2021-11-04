@@ -90,7 +90,7 @@ namespace G_UNO
             this.acercaDeToolStripMenuItem});
             this.guno_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.guno_menuStrip.Name = "guno_menuStrip";
-            this.guno_menuStrip.Size = new System.Drawing.Size(770, 24);
+            this.guno_menuStrip.Size = new System.Drawing.Size(628, 24);
             this.guno_menuStrip.TabIndex = 0;
             this.guno_menuStrip.Text = "menuStrip1";
             // 
@@ -307,7 +307,7 @@ namespace G_UNO
             this.home_toolStripButton});
             this.guno_toolStrip.Location = new System.Drawing.Point(0, 24);
             this.guno_toolStrip.Name = "guno_toolStrip";
-            this.guno_toolStrip.Size = new System.Drawing.Size(770, 25);
+            this.guno_toolStrip.Size = new System.Drawing.Size(628, 25);
             this.guno_toolStrip.TabIndex = 1;
             this.guno_toolStrip.Text = "toolStrip1";
             // 
@@ -467,7 +467,7 @@ namespace G_UNO
             this.portlbl});
             this.guno_statusStrip.Location = new System.Drawing.Point(0, 439);
             this.guno_statusStrip.Name = "guno_statusStrip";
-            this.guno_statusStrip.Size = new System.Drawing.Size(770, 22);
+            this.guno_statusStrip.Size = new System.Drawing.Size(628, 22);
             this.guno_statusStrip.TabIndex = 2;
             this.guno_statusStrip.Text = "statusStrip1";
             // 
@@ -498,7 +498,7 @@ namespace G_UNO
             this.consolatbox.Location = new System.Drawing.Point(12, 52);
             this.consolatbox.Name = "consolatbox";
             this.consolatbox.ReadOnly = true;
-            this.consolatbox.Size = new System.Drawing.Size(746, 384);
+            this.consolatbox.Size = new System.Drawing.Size(604, 384);
             this.consolatbox.TabIndex = 3;
             this.consolatbox.Text = "G_UNO\n";
             // 
@@ -511,7 +511,7 @@ namespace G_UNO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 461);
+            this.ClientSize = new System.Drawing.Size(628, 461);
             this.Controls.Add(this.consolatbox);
             this.Controls.Add(this.guno_statusStrip);
             this.Controls.Add(this.guno_toolStrip);

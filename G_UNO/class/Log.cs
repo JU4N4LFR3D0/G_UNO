@@ -10,7 +10,7 @@ namespace G_UNO
 {
     public static class Log
     {
-        public static void WriteLine(string message)
+        public static void WriteLine(string message, bool writeDateTime = true)
         {
             string path = Application.UserAppDataPath + "/log_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
             if (!File.Exists(path))
@@ -21,7 +21,7 @@ namespace G_UNO
             using (StreamWriter sw = File.AppendText(path))
             {
                 sw.WriteLine(message);
-                sw.WriteLine("-----------------------" + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                if(writeDateTime) sw.WriteLine("-----------------------" + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             }
         }
         public static string Read()
