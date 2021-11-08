@@ -59,6 +59,7 @@ namespace G_UNO
                 {
                     Log.WriteLine("Enviando codigos G");
                     Streaming = true;
+                    Gcodes.Clear();
                     Gcodes = serialRequest.GCode;
                     GCodesSize = Gcodes.Count;
                     Stream();
@@ -126,22 +127,31 @@ namespace G_UNO
         }
         private void Stream()
         {
-            while (string.IsNullOrWhiteSpace(Gcodes[0]))
+            while (true)
             {
-                Gcodes.RemoveAt(0);
-            }
-            if (Gcodes.Count <= 0)
-            {
-                ClosePort();
-                Streaming = false;
-                return;
+                if (Gcodes.Count <= 0)
+                {
+                    ClosePort();
+                    Streaming = false;
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(Gcodes[0]))
+                {
+                    Gcodes.RemoveAt(0);
+                }
+                else
+                {
+                    break;
+                }
+
             }
             if (!Streaming) return;
             if (!CheckPort()) return;
 
             OpenPort();
             GUNO.WriteLine(Gcodes[0]);
-            Gcodes.RemoveAt(0);
+            Log.WriteLine(Gcodes[0]);
+            if(Gcodes.Count > 0)Gcodes.RemoveAt(0);
         }
         private void FastStream(string line)
         {

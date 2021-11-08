@@ -36,7 +36,7 @@ namespace G_UNO
     {
         public static List<string> toLinesList(this string text)
         {
-            return text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            return text.Split(new string[] { "\r\n", "\r", "\n" },StringSplitOptions.None).ToList();
         }
         public static string ArrToString(this string[] lines)
         {
@@ -53,9 +53,9 @@ namespace G_UNO
             {
                 if (items == null) return false;
                 if (items.Length < 1) return false;
-                foreach(string item in items)
+                foreach (string item in items)
                 {
-                    if(item == find)
+                    if (item == find)
                     {
                         return true;
                     }

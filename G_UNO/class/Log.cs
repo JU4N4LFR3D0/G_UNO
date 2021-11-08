@@ -12,27 +12,40 @@ namespace G_UNO
     {
         public static void WriteLine(string message, bool writeDateTime = true)
         {
-            string path = Application.UserAppDataPath + "/log_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
-            if (!File.Exists(path))
+            try
             {
-                FileStream file = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-                file.Close();
+                string path = Application.UserAppDataPath + "/log_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
+                if (!File.Exists(path))
+                {
+                    FileStream file = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+                    file.Close();
+                }
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(message);
+                    if (writeDateTime) sw.WriteLine("-----------------------" + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                }
             }
-            using (StreamWriter sw = File.AppendText(path))
+            catch (Exception)
             {
-                sw.WriteLine(message);
-                if(writeDateTime) sw.WriteLine("-----------------------" + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             }
         }
         public static string Read()
         {
-            string path = Application.UserAppDataPath + "/log_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
-            if (!File.Exists(path))
+            try
             {
-                FileStream file = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
-                file.Close();
+                string path = Application.UserAppDataPath + "/log_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
+                if (!File.Exists(path))
+                {
+                    FileStream file = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+                    file.Close();
+                }
+                return File.ReadAllText(path);
             }
-            return File.ReadAllText(path);
+            catch (Exception)
+            {
+                return "Read error...";
+            }
         }
     }
 }
