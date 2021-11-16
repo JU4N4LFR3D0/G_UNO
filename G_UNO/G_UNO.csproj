@@ -115,7 +115,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="arduino\cnc.ino">
+    <None Include="arduino\arduino.ino">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="gcodes\ardi.gcode">

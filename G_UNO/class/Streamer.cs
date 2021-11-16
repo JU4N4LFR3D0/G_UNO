@@ -92,28 +92,28 @@ namespace G_UNO
                     switch (serialRequest.Type)
                     {
                         case SerialRequest.TypeUp:
-                            FastStream("");
+                            FastStream("W");
                             break;
                         case SerialRequest.TypeDown:
-                            FastStream("");
+                            FastStream("S");
                             break;
                         case SerialRequest.TypeLeft:
-                            FastStream("");
+                            FastStream("D");
                             break;
                         case SerialRequest.TypeRight:
-                            FastStream("");
+                            FastStream("A");
                             break;
                         case SerialRequest.TypeLaserON:
-                            FastStream("");
+                            FastStream("E");
                             break;
                         case SerialRequest.TypeLaserOFF:
-                            FastStream("");
+                            FastStream("Q");
                             break;
                         case SerialRequest.TypeZero:
-                            FastStream("");
+                            FastStream("Z");
                             break;
                         case SerialRequest.TypeHome:
-                            FastStream("");
+                            FastStream("H");
                             break;
                         case SerialRequest.TypeGetInfo:
                             FastStream("");
