@@ -273,6 +273,16 @@ namespace G_UNO.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap info_solid {
+            get {
+                object obj = ResourceManager.GetObject("info_solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lock_open_solid {
             get {
                 object obj = ResourceManager.GetObject("lock_open_solid", resourceCulture);

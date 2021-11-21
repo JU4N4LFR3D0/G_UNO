@@ -29,10 +29,8 @@ namespace G_UNO
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.guno_menuStrip = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadimg_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadgcode_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.update_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +50,11 @@ namespace G_UNO
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.establecerPosicionACerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.irAlOrigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.info_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guno_toolStrip = new System.Windows.Forms.ToolStrip();
             this.update_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.loadgcode_toolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.loadimg_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.port_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cancel_toolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -71,12 +69,12 @@ namespace G_UNO
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.setzeros_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.home_toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.info_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.guno_statusStrip = new System.Windows.Forms.StatusStrip();
             this.versionlbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.gunotoolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.portlbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.consolatbox = new System.Windows.Forms.RichTextBox();
-            this.gunotimer = new System.Windows.Forms.Timer(this.components);
             this.guno_menuStrip.SuspendLayout();
             this.guno_toolStrip.SuspendLayout();
             this.guno_statusStrip.SuspendLayout();
@@ -97,7 +95,6 @@ namespace G_UNO
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadimg_toolStripMenuItem,
             this.loadgcode_toolStripMenuItem,
             this.toolStripSeparator10,
             this.update_toolStripMenuItem,
@@ -106,15 +103,6 @@ namespace G_UNO
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // loadimg_toolStripMenuItem
-            // 
-            this.loadimg_toolStripMenuItem.Image = global::G_UNO.Properties.Resources.image_solid;
-            this.loadimg_toolStripMenuItem.Name = "loadimg_toolStripMenuItem";
-            this.loadimg_toolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.loadimg_toolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.loadimg_toolStripMenuItem.Text = "Cargar Imagen";
-            this.loadimg_toolStripMenuItem.Click += new System.EventHandler(this.loadimg_toolStripMenuItem_Click);
             // 
             // loadgcode_toolStripMenuItem
             // 
@@ -168,7 +156,8 @@ namespace G_UNO
             this.laserOFFToolStripMenuItem,
             this.toolStripSeparator9,
             this.establecerPosicionACerosToolStripMenuItem,
-            this.irAlOrigenToolStripMenuItem});
+            this.irAlOrigenToolStripMenuItem,
+            this.info_toolStripMenuItem});
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.editarToolStripMenuItem.Text = "Editar";
@@ -278,6 +267,15 @@ namespace G_UNO
             this.irAlOrigenToolStripMenuItem.Text = "Ir al origen";
             this.irAlOrigenToolStripMenuItem.Click += new System.EventHandler(this.irAlOrigenToolStripMenuItem_Click);
             // 
+            // info_toolStripMenuItem
+            // 
+            this.info_toolStripMenuItem.Image = global::G_UNO.Properties.Resources.info_solid;
+            this.info_toolStripMenuItem.Name = "info_toolStripMenuItem";
+            this.info_toolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.info_toolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.info_toolStripMenuItem.Text = "Posición de actuador";
+            this.info_toolStripMenuItem.Click += new System.EventHandler(this.info_toolStripMenuItem_Click);
+            // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
@@ -290,7 +288,6 @@ namespace G_UNO
             this.guno_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.update_toolStripButton,
             this.loadgcode_toolStripButton,
-            this.loadimg_toolStripButton,
             this.toolStripSeparator2,
             this.port_toolStripButton,
             this.cancel_toolStripButton,
@@ -304,7 +301,8 @@ namespace G_UNO
             this.laseron_toolStripButton,
             this.toolStripSeparator5,
             this.setzeros_toolStripButton,
-            this.home_toolStripButton});
+            this.home_toolStripButton,
+            this.info_toolStripButton});
             this.guno_toolStrip.Location = new System.Drawing.Point(0, 24);
             this.guno_toolStrip.Name = "guno_toolStrip";
             this.guno_toolStrip.Size = new System.Drawing.Size(628, 25);
@@ -328,16 +326,6 @@ namespace G_UNO
             this.loadgcode_toolStripButton.Name = "loadgcode_toolStripButton";
             this.loadgcode_toolStripButton.Size = new System.Drawing.Size(23, 22);
             this.loadgcode_toolStripButton.Click += new System.EventHandler(this.loadgcode_toolStripButton_Click);
-            // 
-            // loadimg_toolStripButton
-            // 
-            this.loadimg_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.loadimg_toolStripButton.Image = global::G_UNO.Properties.Resources.image_solid;
-            this.loadimg_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.loadimg_toolStripButton.Name = "loadimg_toolStripButton";
-            this.loadimg_toolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.loadimg_toolStripButton.ToolTipText = "Cargar imagen";
-            this.loadimg_toolStripButton.Click += new System.EventHandler(this.loadimg_toolStripButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -459,6 +447,16 @@ namespace G_UNO
             this.home_toolStripButton.ToolTipText = "Ir al origen";
             this.home_toolStripButton.Click += new System.EventHandler(this.home_toolStripButton_Click);
             // 
+            // info_toolStripButton
+            // 
+            this.info_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.info_toolStripButton.Image = global::G_UNO.Properties.Resources.info_solid;
+            this.info_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.info_toolStripButton.Name = "info_toolStripButton";
+            this.info_toolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.info_toolStripButton.Text = "toolStripButton1";
+            this.info_toolStripButton.Click += new System.EventHandler(this.info_toolStripButton_Click);
+            // 
             // guno_statusStrip
             // 
             this.guno_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -502,11 +500,6 @@ namespace G_UNO
             this.consolatbox.TabIndex = 3;
             this.consolatbox.Text = "G_UNO\n";
             // 
-            // gunotimer
-            // 
-            this.gunotimer.Interval = 5000;
-            this.gunotimer.Tick += new System.EventHandler(this.gunotimer_Tick);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,6 +514,7 @@ namespace G_UNO
             this.ShowIcon = false;
             this.Text = "G_UNO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.Shown += new System.EventHandler(this.Main_Shown);
             this.guno_menuStrip.ResumeLayout(false);
             this.guno_menuStrip.PerformLayout();
@@ -573,15 +567,14 @@ namespace G_UNO
         private System.Windows.Forms.ToolStripButton cancel_toolStripButton;
         private System.Windows.Forms.ToolStripProgressBar gunotoolStripProgressBar;
         private System.Windows.Forms.RichTextBox consolatbox;
-        private System.Windows.Forms.ToolStripMenuItem loadimg_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadgcode_toolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem cancelar_toolStripMenuItem;
         private System.Windows.Forms.ToolStripButton port_toolStripButton;
         private System.Windows.Forms.ToolStripButton loadgcode_toolStripButton;
-        private System.Windows.Forms.ToolStripButton loadimg_toolStripButton;
         private System.Windows.Forms.ToolStripStatusLabel portlbl;
-        private System.Windows.Forms.Timer gunotimer;
+        private System.Windows.Forms.ToolStripButton info_toolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem info_toolStripMenuItem;
     }
 }
 

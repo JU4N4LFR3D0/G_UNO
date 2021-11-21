@@ -72,7 +72,6 @@ namespace G_UNO
                     Log.WriteLine("Cancelando Proceso");
                     Gcodes.Clear();
                     Streaming = false;
-                    ClosePort();
                 }
                 else
                 {
@@ -92,31 +91,31 @@ namespace G_UNO
                     switch (serialRequest.Type)
                     {
                         case SerialRequest.TypeUp:
-                            FastStream("W");
+                            FastStream("M300 S99");
                             break;
                         case SerialRequest.TypeDown:
-                            FastStream("S");
+                            FastStream("M300 S97");
                             break;
                         case SerialRequest.TypeLeft:
-                            FastStream("D");
+                            FastStream("M300 S98");
                             break;
                         case SerialRequest.TypeRight:
-                            FastStream("A");
+                            FastStream("M300 S96");
                             break;
                         case SerialRequest.TypeLaserON:
-                            FastStream("E");
+                            FastStream("M300 S30");
                             break;
                         case SerialRequest.TypeLaserOFF:
-                            FastStream("Q");
+                            FastStream("M300 S50");
                             break;
                         case SerialRequest.TypeZero:
-                            FastStream("Z");
+                            FastStream("M300 S94");
                             break;
                         case SerialRequest.TypeHome:
-                            FastStream("H");
+                            FastStream("M300 S95");
                             break;
                         case SerialRequest.TypeGetInfo:
-                            FastStream("");
+                            FastStream("M114");
                             break;
                         default:
                             Log.WriteLine("No se reconoce el tipo de Serial Request");
@@ -131,7 +130,6 @@ namespace G_UNO
             {
                 if (Gcodes.Count <= 0)
                 {
-                    ClosePort();
                     Streaming = false;
                     return;
                 }
@@ -151,22 +149,27 @@ namespace G_UNO
             OpenPort();
             GUNO.WriteLine(Gcodes[0]);
             Log.WriteLine(Gcodes[0]);
-            if(Gcodes.Count > 0)Gcodes.RemoveAt(0);
+            if (Gcodes.Count > 0) Gcodes.RemoveAt(0);
         }
         private void FastStream(string line)
         {
-            if (!Streaming && CheckPort())
+            if (!Streaming)
             {
                 OpenPort();
                 GUNO.WriteLine(line);
-                ClosePort();
             }
         }
         private void GUNO_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string receivedData = GUNO.ReadLine();
-            Log.WriteLine(receivedData, false);
-            if (receivedData.Trim().StartsWith("ok") || receivedData.Trim().StartsWith("error")) Stream();
+            if (receivedData.Trim().StartsWith("ok") || receivedData.Trim().StartsWith("error"))
+            {
+                Stream();
+            }
+            else
+            {
+                Log.WriteLine(receivedData, true);
+            }
         }
         #endregion
 

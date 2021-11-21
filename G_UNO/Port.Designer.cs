@@ -33,6 +33,7 @@ namespace G_UNO
             this.port_comboBox = new System.Windows.Forms.ComboBox();
             this.acceptbutton = new System.Windows.Forms.Button();
             this.cancelbutton = new System.Windows.Forms.Button();
+            this.update_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,7 +54,7 @@ namespace G_UNO
             this.port_comboBox.FormattingEnabled = true;
             this.port_comboBox.Location = new System.Drawing.Point(13, 30);
             this.port_comboBox.Name = "port_comboBox";
-            this.port_comboBox.Size = new System.Drawing.Size(229, 26);
+            this.port_comboBox.Size = new System.Drawing.Size(195, 26);
             this.port_comboBox.TabIndex = 1;
             // 
             // acceptbutton
@@ -78,11 +79,24 @@ namespace G_UNO
             this.cancelbutton.UseVisualStyleBackColor = true;
             this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
             // 
+            // update_button
+            // 
+            this.update_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.update_button.BackgroundImage = global::G_UNO.Properties.Resources.sync_solid;
+            this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.update_button.Location = new System.Drawing.Point(214, 31);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(23, 23);
+            this.update_button.TabIndex = 4;
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            // 
             // Port
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 101);
+            this.Controls.Add(this.update_button);
             this.Controls.Add(this.cancelbutton);
             this.Controls.Add(this.acceptbutton);
             this.Controls.Add(this.port_comboBox);
@@ -107,5 +121,6 @@ namespace G_UNO
         private System.Windows.Forms.ComboBox port_comboBox;
         private System.Windows.Forms.Button acceptbutton;
         private System.Windows.Forms.Button cancelbutton;
+        private System.Windows.Forms.Button update_button;
     }
 }

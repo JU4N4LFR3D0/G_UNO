@@ -15,7 +15,9 @@ namespace G_UNO
     {
         #region Inicializar
         string log = "";
+        int log_size = 0;
         public Streamer streamer = new Streamer();
+        public Timer guno_timer = new Timer();
         public Main()
         {
             InitializeComponent();
@@ -29,8 +31,9 @@ namespace G_UNO
                 portlbl.Text = "Puerto [  ]";
             }
             log = Log.Read();
-            if (consolatbox.Text.Length < log.Length)
+            if (log_size < log.Length)
             {
+                log_size = log.Length;
                 consolatbox.Text = log;
                 consolatbox.SelectionStart = consolatbox.Text.Length;
                 consolatbox.ScrollToCaret();
@@ -44,10 +47,6 @@ namespace G_UNO
                 Cursor = Cursors.Default;
             }
             gunotoolStripProgressBar.Value = streamer.StreamProgress;
-        }
-        void LoadImg()
-        {
-
         }
         void LoadGCode()
         {
@@ -103,6 +102,10 @@ namespace G_UNO
         {
             streamer.StreamRequest(new SerialRequest(SerialRequest.TypeHome));
         }
+        void GetInfo()
+        {
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeGetInfo));
+        }
         void LaserON()
         {
             streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLaserON));
@@ -122,6 +125,12 @@ namespace G_UNO
         }
         #endregion
         #region Eventos
+        private void Main_Load(object sender, EventArgs e)
+        {
+            guno_timer.Interval = 500;
+            guno_timer.Tick += gunotimer_Tick;
+            guno_timer.Start();
+        }
         private void gunotimer_Tick(object sender, EventArgs e)
         {
             Actualizar();
@@ -141,10 +150,6 @@ namespace G_UNO
         private void Main_Shown(object sender, EventArgs e)
         {
             SelectPort();
-        }
-        private void loadimg_toolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadImg();
         }
         private void loadgcode_toolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -210,10 +215,6 @@ namespace G_UNO
         {
             LoadGCode();
         }
-        private void loadimg_toolStripButton_Click(object sender, EventArgs e)
-        {
-            LoadImg();
-        }
         private void port_toolStripButton_Click(object sender, EventArgs e)
         {
             SelectPort();
@@ -253,6 +254,14 @@ namespace G_UNO
         private void home_toolStripButton_Click(object sender, EventArgs e)
         {
             GoHOME();
+        }
+        private void info_toolStripButton_Click(object sender, EventArgs e)
+        {
+            GetInfo();
+        }
+        private void info_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetInfo();
         }
         #endregion
     }

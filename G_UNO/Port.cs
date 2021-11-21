@@ -52,5 +52,11 @@ namespace G_UNO
             this.Close();
         }
 
+        private void update_button_Click(object sender, EventArgs e)
+        {
+            port_comboBox.Items.Clear();
+            port_comboBox.Items.Add("");
+            port_comboBox.Items.AddRange(SerialPort.GetPortNames());
+        }
     }
 }
