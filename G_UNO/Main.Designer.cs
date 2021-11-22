@@ -45,8 +45,8 @@ namespace G_UNO
             this.izquierdaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.derechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.laserONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.laserOFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setOFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.establecerPosicionACerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.irAlOrigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +64,8 @@ namespace G_UNO
             this.up_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.down_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.laseroff_toolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.laseron_toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.setoff_toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.seton_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.setzeros_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.home_toolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -152,8 +152,8 @@ namespace G_UNO
             this.izquierdaToolStripMenuItem,
             this.derechaToolStripMenuItem,
             this.toolStripSeparator8,
-            this.laserONToolStripMenuItem,
-            this.laserOFFToolStripMenuItem,
+            this.setONToolStripMenuItem,
+            this.setOFFToolStripMenuItem,
             this.toolStripSeparator9,
             this.establecerPosicionACerosToolStripMenuItem,
             this.irAlOrigenToolStripMenuItem,
@@ -226,23 +226,23 @@ namespace G_UNO
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(252, 6);
             // 
-            // laserONToolStripMenuItem
+            // setONToolStripMenuItem
             // 
-            this.laserONToolStripMenuItem.Image = global::G_UNO.Properties.Resources.toggle_on_solid;
-            this.laserONToolStripMenuItem.Name = "laserONToolStripMenuItem";
-            this.laserONToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.laserONToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
-            this.laserONToolStripMenuItem.Text = "Laser ON";
-            this.laserONToolStripMenuItem.Click += new System.EventHandler(this.laserONToolStripMenuItem_Click);
+            this.setONToolStripMenuItem.Image = global::G_UNO.Properties.Resources.toggle_on_solid;
+            this.setONToolStripMenuItem.Name = "setONToolStripMenuItem";
+            this.setONToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.setONToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.setONToolStripMenuItem.Text = "Encender actuador";
+            this.setONToolStripMenuItem.Click += new System.EventHandler(this.setONToolStripMenuItem_Click);
             // 
-            // laserOFFToolStripMenuItem
+            // setOFFToolStripMenuItem
             // 
-            this.laserOFFToolStripMenuItem.Image = global::G_UNO.Properties.Resources.toggle_off_solid;
-            this.laserOFFToolStripMenuItem.Name = "laserOFFToolStripMenuItem";
-            this.laserOFFToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.laserOFFToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
-            this.laserOFFToolStripMenuItem.Text = "Laser OFF";
-            this.laserOFFToolStripMenuItem.Click += new System.EventHandler(this.laserOFFToolStripMenuItem_Click);
+            this.setOFFToolStripMenuItem.Image = global::G_UNO.Properties.Resources.toggle_off_solid;
+            this.setOFFToolStripMenuItem.Name = "setOFFToolStripMenuItem";
+            this.setOFFToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.setOFFToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.setOFFToolStripMenuItem.Text = "Apagar actuador";
+            this.setOFFToolStripMenuItem.Click += new System.EventHandler(this.setOFFToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
@@ -297,8 +297,8 @@ namespace G_UNO
             this.up_toolStripButton,
             this.down_toolStripButton,
             this.toolStripSeparator4,
-            this.laseroff_toolStripButton,
-            this.laseron_toolStripButton,
+            this.setoff_toolStripButton,
+            this.seton_toolStripButton,
             this.toolStripSeparator5,
             this.setzeros_toolStripButton,
             this.home_toolStripButton,
@@ -402,25 +402,25 @@ namespace G_UNO
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // laseroff_toolStripButton
+            // setoff_toolStripButton
             // 
-            this.laseroff_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.laseroff_toolStripButton.Image = global::G_UNO.Properties.Resources.toggle_off_solid;
-            this.laseroff_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.laseroff_toolStripButton.Name = "laseroff_toolStripButton";
-            this.laseroff_toolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.laseroff_toolStripButton.ToolTipText = "Apagar laser";
-            this.laseroff_toolStripButton.Click += new System.EventHandler(this.laseroff_toolStripButton_Click);
+            this.setoff_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.setoff_toolStripButton.Image = global::G_UNO.Properties.Resources.toggle_off_solid;
+            this.setoff_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.setoff_toolStripButton.Name = "setoff_toolStripButton";
+            this.setoff_toolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.setoff_toolStripButton.ToolTipText = "Apagar actuador";
+            this.setoff_toolStripButton.Click += new System.EventHandler(this.setoff_toolStripButton_Click);
             // 
-            // laseron_toolStripButton
+            // seton_toolStripButton
             // 
-            this.laseron_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.laseron_toolStripButton.Image = global::G_UNO.Properties.Resources.toggle_on_solid;
-            this.laseron_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.laseron_toolStripButton.Name = "laseron_toolStripButton";
-            this.laseron_toolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.laseron_toolStripButton.ToolTipText = "Encender laser";
-            this.laseron_toolStripButton.Click += new System.EventHandler(this.laseron_toolStripButton_Click);
+            this.seton_toolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.seton_toolStripButton.Image = global::G_UNO.Properties.Resources.toggle_on_solid;
+            this.seton_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.seton_toolStripButton.Name = "seton_toolStripButton";
+            this.seton_toolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.seton_toolStripButton.ToolTipText = "Encender actuador";
+            this.seton_toolStripButton.Click += new System.EventHandler(this.seton_toolStripButton_Click);
             // 
             // toolStripSeparator5
             // 
@@ -547,8 +547,8 @@ namespace G_UNO
         private System.Windows.Forms.ToolStripMenuItem izquierdaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem derechaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem laserONToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem laserOFFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setOFFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem establecerPosicionACerosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem irAlOrigenToolStripMenuItem;
@@ -559,8 +559,8 @@ namespace G_UNO
         private System.Windows.Forms.ToolStripButton up_toolStripButton;
         private System.Windows.Forms.ToolStripButton down_toolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton laseroff_toolStripButton;
-        private System.Windows.Forms.ToolStripButton laseron_toolStripButton;
+        private System.Windows.Forms.ToolStripButton setoff_toolStripButton;
+        private System.Windows.Forms.ToolStripButton seton_toolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton setzeros_toolStripButton;
         private System.Windows.Forms.ToolStripButton home_toolStripButton;

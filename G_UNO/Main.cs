@@ -187,11 +187,11 @@ namespace G_UNO
         {
             GoRIGHT();
         }
-        private void laserONToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LaserON();
         }
-        private void laserOFFToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setOFFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LaserOFF();
         }
@@ -239,11 +239,11 @@ namespace G_UNO
         {
             GoDOWN();
         }
-        private void laseroff_toolStripButton_Click(object sender, EventArgs e)
+        private void setoff_toolStripButton_Click(object sender, EventArgs e)
         {
             LaserOFF();
         }
-        private void laseron_toolStripButton_Click(object sender, EventArgs e)
+        private void seton_toolStripButton_Click(object sender, EventArgs e)
         {
             LaserON();
         }
