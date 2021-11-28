@@ -4,7 +4,6 @@
 #define LINE_BUFFER_LENGTH 512 //Se define el tamaño del buffer
 
 char STEP = MICROSTEP;              //Modo de paso de los motores a microstep
-const int laserpin = 2;             //Pin del laser
 const int stepsPerRevolution = 48; //200 steps por revolucion
 
 // Servo position for Up and Down 
@@ -63,8 +62,8 @@ float Zpos = Zmax;
 //
 //  G1 <- Para movimiento
 //  G4 P300 <- Espera 150ms
-//  M300 S30 <- laser encendido
-//  M300 S50 <- laser apagado
+//  M300 S30 <- actuador encendido
+//  M300 S50 <- actuador apagado
 //  Ignora comentarios que empiezan con '('
 //  Ignora otros comandos
 
@@ -232,16 +231,16 @@ void processIncomingLine(char *line, int charNB)
       buffer[3] = '\0';
       switch (atoi(buffer))
       {         //switch del int de 3 digitos almacenado en el buffer
-      case 300: //comando de apagado/encendido de laser
+      case 300: //comando de apagado/encendido de actuador
       {
         char *indexS = strchr(line + currentIndex, 'S'); //busca una "S" y devuelve el indice
         float Spos = atof(indexS + 1);                   //convierte a float el numero despues de la S
         if (Spos == 30)
-        { //si es igual a 30 entonces enciende el laser
+        { //si es igual a 30 entonces enciende el actuador
           penDown();
         }
         if (Spos == 50)
-        { //si es igual a 50 entonces apaga el laser
+        { //si es igual a 50 entonces apaga el actuador
           penUp();
         }
         if (Spos == 99)

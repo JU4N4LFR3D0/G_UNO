@@ -15,8 +15,8 @@ namespace G_UNO
         public const int TypeDown = 13;
         public const int TypeLeft = 14;
         public const int TypeRight = 15;
-        public const int TypeLaserON = 16;
-        public const int TypeLaserOFF = 17;
+        public const int TypeSetON = 16;
+        public const int TypeSetOFF = 17;
         public const int TypeZero = 18;
         public const int TypeHome = 19;
         public const int TypeGetInfo = 20;

@@ -1,5 +1,5 @@
 # G_UNO
-Arduino CNC Laser with G Codes Interface on
+Arduino CNC with G Codes Interface on
 
 # .NET Windows Forms Proyect
 
@@ -7,7 +7,7 @@ Arduino CNC Laser with G Codes Interface on
 # COPYRIGHT NOTICE FOR G_UNO:
 ------------------------------------------------------------------------------
 
-G_UNO - Programa de control de arduino cnc laser
+G_UNO - Programa de control de arduino cnc
 
 Copyright (c) 2021 Juan Alfredo Colmenero juanalfredocc22@hotmail.com 
 

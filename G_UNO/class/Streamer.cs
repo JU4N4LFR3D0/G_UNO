@@ -24,8 +24,11 @@ namespace G_UNO
         {
             get
             {
-                if (!Streaming) return 0;
-                double progress = ((GCodesSize - Gcodes.Count) / GCodesSize) * 100;
+                if (!IsStreaming) return 0;
+                if (GCodesSize <= 0) return 0;
+                double progress = GCodesSize - Gcodes.Count;
+                progress /= GCodesSize;
+                progress *= 100.0;
                 return progress >= 100 ? 100 : progress <= 0 ? 0 : (int)progress;
             }
         }
@@ -38,7 +41,6 @@ namespace G_UNO
             GUNO.DataReceived += GUNO_DataReceived;
         }
         #endregion
-
 
         #region Metodos Prinicpales
         public void StreamRequest(SerialRequest serialRequest)
@@ -102,10 +104,10 @@ namespace G_UNO
                         case SerialRequest.TypeRight:
                             FastStream("M300 S96");
                             break;
-                        case SerialRequest.TypeLaserON:
+                        case SerialRequest.TypeSetON:
                             FastStream("M300 S30");
                             break;
-                        case SerialRequest.TypeLaserOFF:
+                        case SerialRequest.TypeSetOFF:
                             FastStream("M300 S50");
                             break;
                         case SerialRequest.TypeZero:
@@ -173,7 +175,6 @@ namespace G_UNO
         }
         #endregion
 
-
         #region Metodos Secundarios
         public bool SetPort(string port)
         {
@@ -219,6 +220,5 @@ namespace G_UNO
             if (!GUNO.IsOpen) GUNO.Open();
         }
         #endregion
-
     }
 }

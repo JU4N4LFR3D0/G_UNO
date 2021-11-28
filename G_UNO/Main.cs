@@ -15,7 +15,7 @@ namespace G_UNO
     {
         #region Inicializar
         string log = "";
-        int log_size = 0;
+        int log_size = 1;
         public Streamer streamer = new Streamer();
         public Timer guno_timer = new Timer();
         public Main()
@@ -26,27 +26,34 @@ namespace G_UNO
         #region Metodos
         void Actualizar()
         {
-            if (!streamer.CheckPort())
+            try
             {
-                portlbl.Text = "Puerto [  ]";
+                if (!streamer.CheckPort())
+                {
+                    portlbl.Text = "Puerto [  ]";
+                }
+                log = Log.Read();
+                if (log_size < log.Length)
+                {
+                    consolatbox.AppendText(log.Substring(log_size, log.Length-log_size));
+                    log_size = log.Length;
+                    consolatbox.SelectionStart = consolatbox.Text.Length;
+                    consolatbox.ScrollToCaret();
+                }
+                if (streamer.IsStreaming)
+                {
+                    Cursor = Cursors.WaitCursor;
+                }
+                else
+                {
+                    Cursor = Cursors.Default;
+                }
+                gunotoolStripProgressBar.Value = streamer.StreamProgress;
             }
-            log = Log.Read();
-            if (log_size < log.Length)
+            catch (Exception ex)
             {
-                log_size = log.Length;
-                consolatbox.Text = log;
-                consolatbox.SelectionStart = consolatbox.Text.Length;
-                consolatbox.ScrollToCaret();
+                MessageBox.Show("Error " + ex.Message);
             }
-            if (streamer.IsStreaming)
-            {
-                Cursor = Cursors.WaitCursor;
-            }
-            else
-            {
-                Cursor = Cursors.Default;
-            }
-            gunotoolStripProgressBar.Value = streamer.StreamProgress;
         }
         void LoadGCode()
         {
@@ -106,13 +113,13 @@ namespace G_UNO
         {
             streamer.StreamRequest(new SerialRequest(SerialRequest.TypeGetInfo));
         }
-        void LaserON()
+        void SetON()
         {
-            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLaserON));
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeSetON));
         }
-        void LaserOFF()
+        void SetOFF()
         {
-            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeLaserOFF));
+            streamer.StreamRequest(new SerialRequest(SerialRequest.TypeSetOFF));
         }
         void SetZeros()
         {
@@ -189,11 +196,11 @@ namespace G_UNO
         }
         private void setONToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LaserON();
+            SetON();
         }
         private void setOFFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LaserOFF();
+            SetOFF();
         }
         private void establecerPosicionACerosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -241,11 +248,11 @@ namespace G_UNO
         }
         private void setoff_toolStripButton_Click(object sender, EventArgs e)
         {
-            LaserOFF();
+            SetOFF();
         }
         private void seton_toolStripButton_Click(object sender, EventArgs e)
         {
-            LaserON();
+            SetON();
         }
         private void setzeros_toolStripButton_Click(object sender, EventArgs e)
         {
