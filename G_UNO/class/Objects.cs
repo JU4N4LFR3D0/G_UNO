@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G_UNO
 {
-    public class SerialRequest
+    public class SerialRequest //la clase serial request contiene los tipos de request y los codigos g en lista
     {
         #region Const
         public const int TypeGCodeStream = 10;
@@ -32,13 +32,13 @@ namespace G_UNO
         }
 
     }
-    public static class Extensions
+    public static class Extensions //extensiones de .NET
     {
-        public static List<string> toLinesList(this string text)
+        public static List<string> toLinesList(this string text) //convertir texto a lista de lineas
         {
             return text.Split(new string[] { "\r\n", "\r", "\n" },StringSplitOptions.None).ToList();
         }
-        public static string ArrToString(this string[] lines)
+        public static string ArrToString(this string[] lines) //convertir arreglo de strings a texto
         {
             StringBuilder stringBuilder = new StringBuilder();
             foreach (string line in lines)
@@ -47,7 +47,7 @@ namespace G_UNO
             }
             return stringBuilder.ToString();
         }
-        public static bool InArray(this string[] items, string find)
+        public static bool InArray(this string[] items, string find) //verificar si un string esta dentro de un array de strings
         {
             try
             {

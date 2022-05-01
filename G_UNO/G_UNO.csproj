@@ -127,7 +127,9 @@
     <None Include="gcodes\blaziken.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="gcodes\bob&amp;pat.gcode" />
+    <None Include="gcodes\bob&amp;pat.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="gcodes\bulb.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -152,22 +154,36 @@
     <None Include="gcodes\ivy.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="gcodes\mono.gcode" />
-    <None Include="gcodes\pikachu.gcode" />
-    <None Include="gcodes\pitufo.gcode" />
-    <None Include="gcodes\planet.gcode" />
-    <None Include="gcodes\popeye.gcode" />
+    <None Include="gcodes\mono.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="gcodes\pikachu.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="gcodes\pitufo.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="gcodes\planet.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="gcodes\popeye.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="gcodes\saturn.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="gcodes\skeletor.gcode" />
+    <None Include="gcodes\skeletor.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="gcodes\swellow.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="gcodes\Taj.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="gcodes\testing.gcode" />
+    <None Include="gcodes\testing.gcode">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="gcodes\torchic.gcode">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
